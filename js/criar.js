@@ -13,13 +13,11 @@ cadastroHTML.addEventListener('entrar', (evento) => {
     const email = document.getElementById('email').value
     const senha = document.getElementById('senha').value
 
-    const senha2 = document.getElementById('senha2').value
+    const repitaSenha = document.getElementById('repitaSenha').value
 
-    if(senha !== senha2){
-        window.alert('As senhas não são compatíveis')
-    } else {
-        window.alert("Conta criada com sucesso!")
-        return
+    if (senha !== repitaSenha) {
+        window.alert("As senhas não são compativeis")
+        return;
     }
 const novoCadastro = {
         email: email,
@@ -27,5 +25,4 @@ const novoCadastro = {
     }
         cadastrados.push(novoCadastro)
     cadastroHTML.reset()
-
 }) 
