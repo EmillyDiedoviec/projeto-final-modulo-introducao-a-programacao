@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #18181c;
+}
+
+header {
+    background: #945ff5;
+    width: 100vw;
+    height: 50px;
+}
+
+header > h1 {
+    color: white;
+    padding: 5px 0 0 20px;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 300px;
+    left: 150px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+}
+
+tr:hover {background-color: #D6EEEE;}

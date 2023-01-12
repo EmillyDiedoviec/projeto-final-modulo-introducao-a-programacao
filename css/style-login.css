@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #18181c;
+}
+
+.welcome {
+    border: 10px;
+    padding: 30px;
+    margin: 50px;
+    width: 30%;
+    height: 72%;
+    left: 200px;
+    position: absolute;
+    background-color: #1e4042;
+    background: #945ff5;
+    box-shadow: inset -35px -35px 70px #ffed63,
+        inset 35px 35px 70px #ed98ff;
+}
+
+
+
+.login-box {
+    border: 10px;
+    padding: 30px;
+    margin: 50px;
+    width: 30%;
+    height: 72%;
+    right: 200px;
+    position: absolute;
+    background-color: whitesmoke;
+    /*     box-shadow: #42416b 80px -40px 1px; */
+    /*     border-radius: 78px; */
+    /*     background: linear-gradient(145deg, #202035, #25253f); */
+    /*     box-shadow:  40px 40px 1px #0e0e18, 
+    -40px -40px 1px #38385e; */
+}
+
+
+.titulo {
+    font-size: 35px;
+    text-align: center;
+    color: black;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-family: 'Fredoka One', cursive;
+    font-weight: lighter;
+}
+
+.titulo-welcome {
+    font-size: 70px;
+    color: white;
+    margin-top: 160px;
+    font-family: 'Fredoka One', cursive;
+}
+
+input {
+    margin: 10px;
+    width: 90%;
+    border-radius: 20px;
+    border-style: hidden;
+    color: #1e4042;
+    padding: 12px;
+}
+
+#entrar {
+    background: linear-gradient(-45deg, #3f00b5, #9f69fe, #ffed63, #3f00b5);
+    background-size: 800% 400%;
+    padding: 1em 2em;
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+    transition: all .5s ease-in-out;
+    animation: gradient 10s infinite cubic-bezier(.62, .28, .23, .99) both;
+    top: 355px;
+    right: 15px;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+#entrar:hover {
+    animation: gradient 3s infinite;
+    transform: scale(1.05);
+}
+
+#entrar:active {
+    animation: gradient 3s infinite;
+    transform: scale(0.8);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+p {
+    margin-left: 70px;
+    color: black;
+    padding-top: 10px;
+    position: absolute;
+    font-size: 17px;
+}
+
+a {
+    color: #3f00b5;
+}
+
+#email, #senha {
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+#email:focus,
+#email:hover,
+#senha:focus,
+#senha:hover {
+    outline: none;
+    padding: .3rem;
+    border-radius: 1rem;
+    border-color: #945ff5;
+}
+
+#email::placeholder, #senha::placeholder {
+    color: #777;
+}
+
+#email:focus::placeholder,
+#senha:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+}
