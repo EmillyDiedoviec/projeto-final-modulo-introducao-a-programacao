@@ -3,7 +3,7 @@
 // vai direto para a pagina de login
 
 
-let listaCadastros = [];
+let listaCadastros = buscarDadosDoLocalStorage('usuarios');
 
 let cadastroHTML = document.getElementById('cadastro')
 
@@ -23,6 +23,7 @@ cadastroHTML.addEventListener('submit', (evento) => {
     let existe = listaCadastros.some((valor) => valor.email === email)
     if(existe){
         alert("E-mail já cadastrado!")
+        cadastroHTML.reset();
         return
     } 
 
@@ -35,6 +36,8 @@ cadastroHTML.addEventListener('submit', (evento) => {
     listaCadastros.push(novoCadastro);
     guardarNoLocalStorage('usuarios', listaCadastros);
     cadastroHTML.reset()
+
+    window.location.href = './login.html'
 })
 
 

@@ -5,57 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
     <link rel="stylesheet" href="./css/style-login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-    
+
 </head>
-
-<header>
-<!-- add uma logotipo minha/minha marca -->
-</header>
-
 <body>
-    <main>
-
-        <section class="welcome">
-            <h1 class="titulo-welcome">WELCOME BACK!</h1>
-        </section>
-        <section>
-
-        </section>
-
-
-        <section class="login-box">
-
-            <h1 class="titulo">Login</h1>
-            <form>
-                <input type="email" 
-                id="email" 
-                placeholder="  Digite seu E-mail:"
-                required>
     
-                <input type="password" 
-                id="senha"
-                placeholder="  Digite sua Senha:"
-                required>
+<header>
+    <!-- add uma logotipo minha/minha marca -->
+    </header>
     
-                <input type="submit" 
-                value="Entrar"
-                id="entrar">
-            </form>
+    <body>
+        <main>
+    
+            <section class="welcome">
+                <h1 class="titulo-welcome">WELCOME BACK!</h1>
+    
+    <!--             colocar uma foto de anotação -->
+            </section>
+            <section>
+    
+            </section>
+    
+    
+            <section class="login-box">
+    
+                <h1 class="titulo">Login</h1>
+                <form id="login" class="login">
+                    <input type="email" 
+                    id="email" 
+                    placeholder="  Digite seu E-mail:"
+                    required>
+        
+                    <input type="password" 
+                    id="senha"
+                    placeholder="  Digite sua Senha:"
+                    required>
+        
+                    <input type="submit" 
+                    value="Entrar"
+                    id="entrar">
+                </form>
+    
+    
+                <div class="login-box2"></div>
+    
+                <p>
+                    Ainda não possui uma conta? 
+                    <a href="./criar.html">Crie uma aqui</a>
+                </p>
+            </section>
+        </main>
 
-
-            <div class="login-box2"></div>
-
-            <p>
-                Ainda não possui uma conta? 
-                <a href="./criar.html">Crie uma aqui</a>
-            </p>
-        </section>
-    </main>
-
-
-    <script src="./login.js"></script>
+        <script src="./js/login.js"></script>
 </body>
 </html>
