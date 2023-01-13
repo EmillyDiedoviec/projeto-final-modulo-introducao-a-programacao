@@ -124,7 +124,7 @@ a {
     color: #3f00b5;
 }
 
-#email, #senha , #senha2{
+#email, #senha , #repitaSenha{
     line-height: 28px;
     border: 2px solid transparent;
     border-bottom-color: #777;
@@ -139,21 +139,21 @@ a {
 #email:hover,
 #senha:focus,
 #senha:hover,
-#senha2:focus,
-#senha2:hover {
+#repitaSenha:focus,
+#repitaSenha:hover {
     outline: none;
     padding: .3rem;
     border-radius: 1rem;
     border-color: #945ff5;
 }
 
-#email::placeholder, #senha::placeholder, #senha2::placeholder {
+#email::placeholder, #senha::placeholder, #repitaSenha::placeholder {
     color: #777;
 }
 
 #email:focus::placeholder,
 #senha:focus::placeholder,
-#senha2:focus::placeholder {
+#repitaSenha:focus::placeholder {
     opacity: 0;
     transition: opacity .3s;
 }
