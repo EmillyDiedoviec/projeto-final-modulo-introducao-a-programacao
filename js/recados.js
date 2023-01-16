@@ -1,5 +1,12 @@
-function sair() {
-    const listaCadastros = buscarDadosDoLocalStorage('cadastros')
+function apagar(indice){
+    //remover da lista de registros
+    usuarioLogado.splice()
 
-    const acharUSu = listaCadastros.findindex((valor))
+    //att o localstorage
+    guardarLocalStorage('usuarioLogado', listaCadastros)
+    //remover linha html
+    // posição === id
+
+    const trRemove = document.getElementById(indice, 1)
+    trRemove.remove()
 }

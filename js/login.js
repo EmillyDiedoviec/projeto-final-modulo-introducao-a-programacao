@@ -14,9 +14,9 @@ cadastroHTML.addEventListener('submit', (evento) => {
         alert("dado inválido")
         return
     } else {
-        console.log(usuarioEncontrado)
-/*         window.location.href = './recados.html'
- */    }
+        guardarNoLocalStorage('usuariologado', )
+        window.location.href = './recados.html'
+    }
 })
 
 function guardarNoLocalStorage(chave, valor) {

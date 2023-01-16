@@ -36,9 +36,17 @@ cadastroHTML.addEventListener('submit', (evento) => {
     listaCadastros.push(novoCadastro);
     guardarNoLocalStorage('usuarios', listaCadastros);
     cadastroHTML.reset()
+    abrirPopup()
 
-    window.location.href = './login.html'
 })
+
+function abrirPopup(){
+    document.getElementById('popup').style.display = 'block'
+}
+
+function botaoPopup(){
+    window.location.href = './login.html'
+}
 
 
 function guardarNoLocalStorage(chave, valor) {
