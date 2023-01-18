@@ -40,6 +40,7 @@ cadastroHTML.addEventListener('submit', (evento) => {
 
 })
 
+
 function abrirPopup(){
     document.getElementById('popup').style.display = 'block'
 }
