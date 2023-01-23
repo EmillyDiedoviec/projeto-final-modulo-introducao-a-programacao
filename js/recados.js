@@ -2,7 +2,6 @@ const usuarioLogado = buscarDadosDoLocalStorage('usuarioLogado')
 
 const modal = document.querySelector('.modal-container')
 
-const listaNotas = usuarioLogado.notas
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!usuarioLogado.email) {
@@ -12,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })
 
+const listaNotas = usuarioLogado.notas
 const formularioHTML = document.getElementById('formRecados')
 const tbody = document.getElementById('listaRecados')
 
@@ -26,8 +26,9 @@ formularioHTML.addEventListener('submit', (evento) => {
         detalhamento: detalhamento,
     }
 
-    usuarioLogado.notas.push(novaNota)
+    listaNotas.push(novaNota)
 
+    salvarRecados()
     formularioHTML.reset()
     mostrarRegistroHTML()
     guardarNoLocalStorage('usuarioLogado', usuarioLogado)
@@ -36,7 +37,7 @@ formularioHTML.addEventListener('submit', (evento) => {
 function mostrarRegistroHTML() {
     tbody.innerHTML = ''
 
-    usuarioLogado.notas.forEach((valor, index) => {
+    listaNotas.forEach((valor, index) => {
         tbody.innerHTML += `
             <tr id="${index}">
             <td>${index + 1} </td>
@@ -50,6 +51,15 @@ function mostrarRegistroHTML() {
         </tr>
         `
     })
+}
+
+function salvarRecados() {
+    const listaUsuarios = buscarDadosDoLocalStorage('usuarios')
+    const acharUsuario = listaUsuarios.findIndex((valor) => valor.email === usuarioLogado.email)
+
+    listaUsuarios[acharUsuario].notas = listaNotas
+
+    guardarNoLocalStorage('usuarios', listaUsuarios)
 }
 
 function guardarNoLocalStorage(chave, valor) {
@@ -69,14 +79,6 @@ function buscarDadosDoLocalStorage(chave) {
     }
 }
 
-function salvarRecados() {
-    const listaUsuarios = buscarDadosDoLocalStorage('usuarios')
-    const acharUsuario = listaUsuarios.findIndex((valor) => valor.email === usuarioLogado.email)
-
-    listaUsuarios[acharUsuario].notas = usuarioLogado.notas
-
-    guardarNoLocalStorage('usuarios', listaUsuarios)
-}
 
 function sair() {
     salvarRecados()
@@ -107,8 +109,8 @@ function closeModal() {
 }
 
 function editar(indice) {
-    const inputEditarNota = document.getElementById("editar-nota");
-    const inputEditarDetalhamento = document.getElementById("editar-detalhamento");
+    const inputEditarNota = document.getElementById('editar-nota');
+    const inputEditarDetalhamento = document.getElementById('editar-detalhamento');
 
     inputEditarNota.value = usuarioLogado.notas[indice].nota
     inputEditarDetalhamento.value = usuarioLogado.notas[indice].detalhamento

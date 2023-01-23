@@ -31,7 +31,7 @@ formularioHTML.addEventListener('submit', (evento) => {
         guardarNoLocalStorage('usuarios', listaCadastros);
         formularioHTML.reset()
         if (novoCadastro) {
-            alert("Conta cadastrada!!")
+            alert("Sucesso! Conta criada 🤩")
     
             setTimeout(() => {
                 window.location.href = './login.html'
