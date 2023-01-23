@@ -11,13 +11,13 @@ formularioHTML.addEventListener('submit', (evento) => {
     const repitaSenha = document.getElementById('repitaSenha').value
 
     if(senha !== repitaSenha){
-        alert("As senhas devem ser iguais!")
+        alert("As senhas devem ser iguais! 😵‍💫")
         return
     }
 
     let existe = listaCadastros.some((valor) => valor.email === email)
     if(existe){
-        alert("E-mail já cadastrado!")
+        alert("E-mail já cadastrado! 😵‍💫")
         formularioHTML.reset();
         return
     }
