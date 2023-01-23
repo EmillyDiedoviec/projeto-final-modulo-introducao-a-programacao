@@ -13,7 +13,7 @@ formularioHTML.addEventListener('submit', (evento) => {
     console.log(usuarioEncontrado)
 
     if(!usuarioEncontrado){
-        alert("Usuario ou senha inválidos ou não existem")
+        alert("Usuario ou senha inválidos ou não existem 😵‍💫")
         return
     } else {
         guardarNoLocalStorage('usuarioLogado', usuarioEncontrado)
