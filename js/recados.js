@@ -2,6 +2,8 @@ const usuarioLogado = buscarDadosDoLocalStorage('usuarioLogado')
 
 const modal = document.querySelector('.modal-container')
 
+const listaNotas = usuarioLogado.notas
+
 document.addEventListener('DOMContentLoaded', () => {
     if (!usuarioLogado.email) {
         window.location.href = './login.html'
@@ -68,12 +70,12 @@ function buscarDadosDoLocalStorage(chave) {
 }
 
 function salvarRecados() {
-    const listaUsuarios = buscarDadosDoLocalStorage('usuarioLogado')
+    const listaUsuarios = buscarDadosDoLocalStorage('usuarios')
     const acharUsuario = listaUsuarios.findIndex((valor) => valor.email === usuarioLogado.email)
 
-    listaUsuarios[acharUsuario].recados = listaRecados
+    listaUsuarios[acharUsuario].notas = usuarioLogado.notas
 
-    guardarNoLocalStorage('Lista-Usuarios', listaUsuarios)
+    guardarNoLocalStorage('usuarios', listaUsuarios)
 }
 
 function sair() {
