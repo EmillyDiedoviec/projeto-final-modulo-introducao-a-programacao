@@ -1,8 +1,8 @@
 const listaCadastros = buscarDadosDoLocalStorage('usuarios')
 
-let cadastroHTML = document.getElementById('login')
+let formularioHTML = document.getElementById('login')
 
-cadastroHTML.addEventListener('submit', (evento) => {
+formularioHTML.addEventListener('submit', (evento) => {
     evento.preventDefault()
 
     const email = document.getElementById('email').value
@@ -10,11 +10,13 @@ cadastroHTML.addEventListener('submit', (evento) => {
 
     const usuarioEncontrado = listaCadastros.find((valor) => valor.email === email && valor.senha === senha) 
 
+    console.log(usuarioEncontrado)
+
     if(!usuarioEncontrado){
-        alert("dado inválido")
+        alert("Usuario ou senha inválidos ou não existem")
         return
     } else {
-        guardarNoLocalStorage('usuariologado', )
+        guardarNoLocalStorage('usuarioLogado', usuarioEncontrado)
         window.location.href = './recados.html'
     }
 })

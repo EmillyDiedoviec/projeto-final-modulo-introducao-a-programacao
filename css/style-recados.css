@@ -10,31 +10,154 @@ body {
     background-color: #18181c;
 }
 
+/* -----------------------HEADER------------------------ */
+
 header {
-    background: #945ff5;
+    background: linear-gradient(180deg, #945ff5, rgba(255, 255, 255, 0));
     width: 100vw;
-    height: 50px;
+    height: 85px;
 }
 
-header > h1 {
+.titulo {
+    font-size: 35px;
+    padding: 8px 10px;
     color: white;
-    padding: 5px 0 0 20px;
+    padding: 15px 0 0 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#iconSair {
+    width: 60px;
+    position: absolute;
+    right: 4px;
+    top: 2px;
+    cursor: pointer;
+}
+
+/* -----------------------MAIN------------------------ */
+
+form {
+    text-align: center;
+}
+
+#nota,
+#detalhamento {
+    line-height: 30px;
+    width: 500px;
+    border: 2px solid transparent;
+    border-bottom-color: #945ff5;
+    padding: .2rem 0;
+    margin: 10px;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    font-size: 13px;
+}
+
+#nota:focus,
+#nota:hover,
+#detalhamento:focus,
+#detalhamento:hover {
+    outline: none;
+    padding: .3rem;
+    border-radius: 1rem;
+    border-color: #945ff5;
+}
+
+#nota::placeholder,
+#detalhamento::placeholder {
+    color: rgba(255, 255, 255, 0.648);
+}
+
+#nota:focus::placeholder,
+#detalhamento:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+#salvarNota {
+    background: #ffed63;
+    background-size: 800% 400%;
+    padding: 10px;
+    margin-left: 20px;
+    display: inline-block;
+    border: none;
+    border-radius: 13px;
+    font-size: 17px;
+    font-weight: 700;
+    color: black;
+    transition: all .5s ease-in-out;
+    animation: gradient 10s infinite cubic-bezier(.62, .28, .23, .99) both;
+    cursor: pointer;
+}
+
+
+#salvarNota:hover {
+    animation: gradient 3s infinite;
+    transform: scale(1.05);
+}
+
+#salvarNota:active {
+    animation: gradient 3s infinite;
+    transform: scale(0.8);
 }
 
 
 table {
     border-collapse: collapse;
-    width: 80%;
-    background-color: whitesmoke;
-    position: absolute;
-    top: 300px;
-    left: 150px;
+    width: 100%;
 }
 
-th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #DDD;
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 4px solid #945ff5;
+    padding-top: 35px;
+    color: white;
 }
 
-tr:hover {background-color: #D6EEEE;}
+th {
+    font-size: 20px;
+}
+
+tbody>tr:hover {
+    background-color: #673bba;
+}
+
+#vazio>h1 {
+    color: white;
+    font-size: 40px;
+    font-family: 'Fredoka One', cursive;
+    font-weight: lighter;
+    position: fixed;
+    top: 400px;
+    left: 480px;
+}
+
+#teia {
+    width: 350px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+
+
+/* -----------------------FOOTER------------------------ */
+
+footer {
+    background: linear-gradient(0deg, #945ff5, rgba(255, 255, 255, 0));
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    text-align: center;
+}
+
+#iconLinkedin,
+#iconGithub,
+#iconInstagram {
+    width: 60px;
+}
