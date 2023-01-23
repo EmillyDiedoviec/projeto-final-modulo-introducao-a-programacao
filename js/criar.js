@@ -20,19 +20,24 @@ formularioHTML.addEventListener('submit', (evento) => {
         alert("E-mail já cadastrado!")
         formularioHTML.reset();
         return
-    } 
-
-    const novoCadastro = {
-        email: email,
-        senha: senha,
-        notas: []
     }
+        const novoCadastro = {
+            email: email,
+            senha: senha,
+            notas: []
+        }
+    
+        listaCadastros.push(novoCadastro);
+        guardarNoLocalStorage('usuarios', listaCadastros);
+        formularioHTML.reset()
+        if (novoCadastro) {
+            alert("Conta cadastrada!!")
+    
+            setTimeout(() => {
+                window.location.href = './login.html'
+            }, 1000)
+        }
 
-    listaCadastros.push(novoCadastro);
-    guardarNoLocalStorage('usuarios', listaCadastros);
-
-    formularioHTML.reset()
-    window.location.href = "./login.html"
 })
 
 

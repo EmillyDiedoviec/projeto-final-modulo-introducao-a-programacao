@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -52,6 +53,44 @@
             </table>
         </section>
 
+        <div class="modal-container">
+            <div class="modal">
+                <form id="form-editar-notas">
+                    <input 
+                    type="text" 
+                    class="input-modal"
+                    name="editar-nota"
+                    id="editar-nota" 
+                    placeholder="Nota:"
+                    required>
+
+                    <input 
+                    type="text" 
+                    class="input-modal"
+                    name="editar-detalhamento"
+                    id="editar-detalhamento" 
+                    placeholder="Detalhamento:"
+                    required>
+
+                    <input 
+                    type="submit"
+                    id="salvar-alteracoes"
+                    value="Salvar Alterações">
+                </form>
+
+                <div class="modal-footer">
+                    <h1>Editar nota:</h1>
+                    <button 
+                        onclick="closeModal()"
+                        id="fechar-modal"
+                        data-bs-dismiss="modal">
+                        <img src="./images/icons8-close-64.png" alt="">
+                    </button>
+                </div>
+            </div>
+
+
+
     </main>
 
     <footer>
@@ -67,7 +106,6 @@
             </a>
         </div>
     </footer>
-
 
     <script src="./js/recados.js"></script>
 </body>

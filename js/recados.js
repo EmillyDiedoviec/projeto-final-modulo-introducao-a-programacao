@@ -1,10 +1,13 @@
 const usuarioLogado = buscarDadosDoLocalStorage('usuarioLogado')
 
+const modal = document.querySelector('.modal-container')
+
 document.addEventListener('DOMContentLoaded', () => {
     if (!usuarioLogado.email) {
         window.location.href = './login.html'
     } else {
-        mostrarRegistroHTML()}
+        mostrarRegistroHTML()
+    }
 })
 
 const formularioHTML = document.getElementById('formRecados')
@@ -39,7 +42,7 @@ function mostrarRegistroHTML() {
             <td>${valor.detalhamento}</td>
 
             <td id="buttons">
-                <button id="editar" onclick="editar(${index})">Editar</button>
+                <button id="editar" onclick="openModal(${index})">Editar</button>
                 <button id="apagar" onclick="apagar(${index})">Apagar</button>
             </td>
         </tr>
@@ -56,12 +59,21 @@ function guardarNoLocalStorage(chave, valor) {
 function buscarDadosDoLocalStorage(chave) {
     const dadoJSON = localStorage.getItem(chave)
 
-    if(dadoJSON) {
+    if (dadoJSON) {
         const listaDados = JSON.parse(dadoJSON)
         return listaDados
     } else {
         return []
     }
+}
+
+function salvarRecados() {
+    const listaUsuarios = buscarDadosDoLocalStorage('usuarioLogado')
+    const acharUsuario = listaUsuarios.findIndex((valor) => valor.email === usuarioLogado.email)
+
+    listaUsuarios[acharUsuario].recados = listaRecados
+
+    guardarNoLocalStorage('Lista-Usuarios', listaUsuarios)
 }
 
 function sair() {
@@ -70,18 +82,54 @@ function sair() {
     window.location.href = './login.html'
 }
 
-function apagar() {
+function apagar(indice) {
+    const confirma = window.confirm("Você tem certeza que quer excluir essa nota?")
 
+    if (confirma) {
+        usuarioLogado.notas.splice(indice, 1)
+
+        const removerRecado = document.getElementById(indice)
+        removerRecado.remove()
+
+        guardarNoLocalStorage('usuarioLogado', usuarioLogado)
+        mostrarRegistroHTML()
+    }
 }
 
-function editar() {
+function openModal() {
+    modal.classList.add('active')
+}
 
+function closeModal() {
+    modal.classList.remove('active')
+}
+
+function editar(indice) {
+    const inputEditarNota = document.getElementById("editar-nota");
+    const inputEditarDetalhamento = document.getElementById("editar-detalhamento");
+
+    inputEditarNota.value = usuarioLogado.notas[indice].nota
+    inputEditarDetalhamento.value = usuarioLogado.notas[indice].detalhamento
+
+    const formEditar = document.getElementById('form-editar-notas')
+    formEditar.addEventListener('submit', (evento) => {
+        evento.preventDefault()
+
+        usuarioLogado.notas[indice].nota = inputEditarNota;
+        usuarioLogado.notas[indice].detalhamento = inputEditarDetalhamento;
+
+        guardarNoLocalStorage('usuarioLogado', usuarioLogado)
+        mostrarRegistroHTML();
+        closeModal()
+    })
 }
 
 
 function mudarEstado() {
     const vazio = document.getElementById('vazio')
-
-    vazio.style.display = 'none';
-
+    if (!usuarioLogado.notas) {
+        vazio.style.display = 'block';
+    } else {
+        vazio.style.display = 'none';
+    }
 }

@@ -77,7 +77,7 @@ form {
 }
 
 #salvarNota {
-    background: #ffed63;
+    background: rgba(158, 235, 50, 0.849);
     background-size: 800% 400%;
     padding: 10px;
     margin-left: 20px;
@@ -126,7 +126,7 @@ tbody>tr:hover {
     background-color: #673bba;
 }
 
-#vazio>h1 {
+#vazio > h1 {
     color: white;
     font-size: 40px;
     font-family: 'Fredoka One', cursive;
@@ -143,7 +143,111 @@ tbody>tr:hover {
     bottom: 0;
 }
 
+.modal-container{
+    position: fixed;
+    top: 150px;
+    left: 300px;
+    z-index: 999;
+    text-align: center;
+    display: none;
+}
 
+.modal{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: #c2a0ff;
+    border-radius: 10px;
+    width: 800px;
+    height: 250px;
+}
+
+.active{
+    display: flex;
+}
+
+.active .modal{
+    animation: modal .4s;
+}
+
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.modal-footer > h1 {
+    color: black;
+    font-size: 45px;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-family: 'Fredoka One', cursive;
+    font-weight: lighter;
+}
+
+#salvar-alteracoes{
+    position: absolute;
+    margin-top: 40px;
+    padding: 20px;
+    border: inset;
+    border-color: rgba(96, 159, 7, 0.758);
+    cursor: pointer;
+    font-family: 'Fredoka One', cursive;
+    font-weight: lighter;
+    color: black;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: rgba(158, 235, 50, 0.758);
+    bottom: 20px;
+    left: 310px;
+}
+
+#fechar-modal{
+    width: 60px;
+    position: absolute;
+    right: -25px;
+    top: -30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.input-modal {
+    border: none;
+    padding: 10px;
+    width: 350px;
+    line-height: 30px;
+    border-radius: 10px;
+    margin: 10px;
+    position: relative;
+    top: 90px;
+}
+
+#editar {
+    background-color: #ffed63;
+    border-radius: 5px;
+    color: #000000;
+    width: 80px;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+}
+
+#apagar {
+    background-color: rgb(230, 106, 106);
+    border-radius: 5px;
+    color: #000000;
+    width: 80px;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+}
 
 /* -----------------------FOOTER------------------------ */
 
