@@ -126,16 +126,6 @@ tbody>tr:hover {
     background-color: #673bba;
 }
 
-#vazio > h1 {
-    color: white;
-    font-size: 40px;
-    font-family: 'Fredoka One', cursive;
-    font-weight: lighter;
-    position: fixed;
-    top: 400px;
-    left: 480px;
-}
-
 #teia {
     width: 350px;
     position: fixed;

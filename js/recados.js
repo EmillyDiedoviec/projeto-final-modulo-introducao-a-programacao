@@ -108,32 +108,24 @@ function closeModal() {
     modal.classList.remove('active')
 }
 
-function editar(indice) {
-    const inputEditarNota = document.getElementById('editar-nota');
-    const inputEditarDetalhamento = document.getElementById('editar-detalhamento');
 
+const inputEditarNota = document.getElementById('editar-nota')
+const inputEditarDetalhamento = document.getElementById('editar-detalhamento')
+
+function editar(indice) {
     inputEditarNota.value = usuarioLogado.notas[indice].nota
     inputEditarDetalhamento.value = usuarioLogado.notas[indice].detalhamento
+    console.log(usuarioLogado.notas[indice])
 
-    const formEditar = document.getElementById('form-editar-notas')
-    formEditar.addEventListener('submit', (evento) => {
-        evento.preventDefault()
-
-        usuarioLogado.notas[indice].nota = inputEditarNota;
-        usuarioLogado.notas[indice].detalhamento = inputEditarDetalhamento;
-
-        guardarNoLocalStorage('usuarioLogado', usuarioLogado)
-        mostrarRegistroHTML();
-        closeModal()
-    })
+    const btnSalvar = document.getElementById('salvar-alteracoes')
+    btnSalvar.setAttribute('onclick', `atualizar(${indice})`)
 }
 
+function atualizar(indice) {
+    usuarioLogado.notas[indice].nota = inputEditarNota.value
+    usuarioLogado.notas[indice].detalhamento = inputEditarDetalhamento.value
 
-function mudarEstado() {
-    const vazio = document.getElementById('vazio')
-    if (!usuarioLogado.notas) {
-        vazio.style.display = 'block';
-    } else {
-        vazio.style.display = 'none';
-    }
+    guardarNoLocalStorage('usuarioLogado', usuarioLogado)
+    mostrarRegistroHTML()
+    closeModal()
 }
