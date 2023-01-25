@@ -1,8 +1,5 @@
 const usuarioLogado = buscarDadosDoLocalStorage('usuarioLogado')
 
-const modal = document.querySelector('.modal-container')
-
-
 document.addEventListener('DOMContentLoaded', () => {
     if (!usuarioLogado.email) {
         window.location.href = './login.html'
@@ -11,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })
 
+const modal = document.querySelector('.modal-container')
 const listaNotas = usuarioLogado.notas
 const formularioHTML = document.getElementById('formRecados')
 const tbody = document.getElementById('listaRecados')
@@ -27,11 +25,11 @@ formularioHTML.addEventListener('submit', (evento) => {
     }
 
     listaNotas.push(novaNota)
+    guardarNoLocalStorage('usuarioLogado', usuarioLogado)
 
     salvarRecados()
     formularioHTML.reset()
     mostrarRegistroHTML()
-    guardarNoLocalStorage('usuarioLogado', usuarioLogado)
 })
 
 function mostrarRegistroHTML() {
@@ -45,7 +43,7 @@ function mostrarRegistroHTML() {
             <td>${valor.detalhamento}</td>
 
             <td id="buttons">
-                <button id="editar" onclick="openModal(${index})">Editar</button>
+                <button id="editar" onclick="editar(${index})">Editar</button>
                 <button id="apagar" onclick="apagar(${index})">Apagar</button>
             </td>
         </tr>
@@ -113,6 +111,7 @@ const inputEditarNota = document.getElementById('editar-nota')
 const inputEditarDetalhamento = document.getElementById('editar-detalhamento')
 
 function editar(indice) {
+    openModal()
     inputEditarNota.value = usuarioLogado.notas[indice].nota
     inputEditarDetalhamento.value = usuarioLogado.notas[indice].detalhamento
     console.log(usuarioLogado.notas[indice])
